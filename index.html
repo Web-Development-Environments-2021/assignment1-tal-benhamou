@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://smtpjs.com/v3/smtp.js"></script>  
 <link rel="stylesheet" type="text/css" href="style.css" />
+<script src="https://cdn.tiny.cloud/1/nufl5038mc638xkv5l2u3qcafowzlsekes4e1v6jpyv6timy/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 <body>
   <div id="fb-root"></div>
@@ -76,17 +78,12 @@ my photos
 <br/>
 <br/>
 <br/>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Z1ODZmoyNNc&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<br/>
-
+<iframe width="700" height="415" src="https://www.youtube.com/embed/Z1ODZmoyNNc&autoplay=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br/>
 <br/>
 <br/>
 <br/>
 <br/>
-<br/>
-<br/>
-my playlist
 <br/>
 <br/>
 <br/>
@@ -169,7 +166,6 @@ ans
   <h2>Contact Me</h2>
 <br/>
 <br/>
-<form onsubmit="return false"></form>
 <input type="text" placeholder="Enter your first name" id="firstName" />
 <br/>
 <br/>
@@ -185,7 +181,7 @@ ans
 <br/>
 <span>What is your question?</span>
 <br>
-<textarea id="question" rows="4"></textarea>
+  <textarea id="mytextarea" rows="5" ></textarea>
 <br/>
 <br/>
 <button onclick="sendContact();">Send contact</button>
@@ -220,15 +216,26 @@ $(function(){
  <script type="text/javascript">
    function sendContact(){
     var contact_name = firstName.value +" "+ lastName.value
-    console.log(contact_name)
+    // console.log(contact_name)
     var genderValue = male.checked ? "male" : "female"
-    console.log("gender = " + genderValue)
+    // console.log("gender = " + genderValue)
     var contact_email = email.value
-    console.log(contact_email)
-    var contact_content = question.value
-    console.log(contact_content)
+    // console.log(contact_email)
+    var contact_content = tinymce.get("mytextarea").getContent();
+    // console.log(contact_content.slice(3, -4))
+    window.open("mailto:tal.ben.hamou@gmail.com?subject=Contacting With TBH&body=" +contact_content.slice(3, -4))
    }
 
  </script>
+<script type="text/javascript">
+  tinymce.init({
+    selector: "#mytextarea",
+    plugins: "emoticons",
+    toolbar: "emoticons",
+    toolbar_location: "bottom",
+    menubar: false,
+    height : "200",
+  });
+</script>
 </body>
 </html>
