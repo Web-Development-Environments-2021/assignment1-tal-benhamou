@@ -64,8 +64,19 @@ body{
 	font-family: "Times New Roman", Times, serif;
 	border-radius: 10px;
 }
-button{
+button {
 	width: 75px;
+	height: 50px;
+	font-size: large;
+	font-style: normal;
+	text-align: center;
+	border-width: 3px;
+	background-color: rgb(255, 83, 83);
+	font-family: "Times New Roman", Times, serif;
+	border-radius: 20px;
+}
+#email_button{
+	width: 150px;
 	height: 50px;
 	font-size: large;
 	font-style: normal;
