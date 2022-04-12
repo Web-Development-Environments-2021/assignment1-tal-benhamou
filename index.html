@@ -6,18 +6,19 @@
 <script src="https://cdn.tiny.cloud/1/nufl5038mc638xkv5l2u3qcafowzlsekes4e1v6jpyv6timy/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 <body>
-  <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v13.0" nonce="HIVLusKs"></script>
-  <div id="menu" class="topnav">
+  <ul id="menu" class="topnav">
     <lu style="float:left">Logo</lu>
-    <lu><a href="#about">About Me</a></lu>
-    <lu><a href="#photos">My Photos</a></lu>
+    <lu>
+      <a href="#about">About Me</a>      
+    </a>
+    </lu>
+    <lu><a class="fa fa-picture-o" href="#photos">My Photos</a></lu>
     <lu><a href="#playlist">My Playlist</a></lu>
     <lu><a href="#like">Like</a></lu>
     <lu><a href="#qrcoder">QR code</a></lu>
     <lu><a href="#spa">Q&A</a></lu>
     <lu><a href="#contact">Contact Me</a></lu>
-  </div>
+  </ul>
 <br/>
 <br/>
 <br/>
@@ -100,7 +101,15 @@ my photos
 <section id="like" class="section">
 <div>
   <h2>Like</h2>
-  <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="" data-layout="button" data-action="like" data-size="large" data-share="false" onclick="click_count()"></div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div >
+  <button class="likebutton" onclick="click_count()">like</button>
+  <div id="count_like">0</div>
 </div>
 <br/>
 <br/>
@@ -113,12 +122,6 @@ my photos
 <br/>
 <br/>
 <br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-give me a like
 <br/>
 <br/>
 <br/>
@@ -226,12 +229,6 @@ $(function(){
  });
  </script>
  <script type="text/javascript">
-   var clicks = 0;
-   function click_count(){
-    ++clicks;
-   }
- </script>
- <script type="text/javascript">
    function sendContact(){
     var contact_name = firstName.value +" "+ lastName.value
     // console.log(contact_name)
@@ -245,6 +242,15 @@ $(function(){
    }
 
  </script>
+ <script type="text/javascript">
+  var count = 0;
+  function click_count(){
+    ++count;
+    document.getElementById("count_like").innerHTML = count;
+    
+  }
+  document.write(count);
+</script>
 <script type="text/javascript">
   tinymce.init({
     selector: "#mytextarea",
