@@ -28,7 +28,7 @@ body{
 .topnav a:hover {
 	background-color: rgb(41, 41, 41);
 	color: rgb(188, 188, 188);
-	border-radius: 10px;
+	border-radius: 75%;
 }
   
 /* Add a color to the active/current link */
